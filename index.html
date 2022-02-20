@@ -8,7 +8,11 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
-    <div id="app">{{ nextYear('안녕하세요') }}</div>
+    <div id="app">
+      {{ nextYear('안녕하세요') }}
+      <input :type="type" v-bind:value="inputData" />
+      <a :href="link">현수</a>
+    </div>
     <script>
       new Vue({
         el: "#app",
@@ -17,9 +21,12 @@
             name: "현수",
             age: 23,
           },
+          inputData: "hello",
+          type: "text",
+          link: "https://www.naver.com",
         },
         methods: {
-          nextYear: function (greeting) {
+          nextYear(greeting) {
             return (
               greeting +
               "! " +
